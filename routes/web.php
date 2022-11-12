@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\ArticleControlloer; //a15,c3,s4
+use App\Http\Controllers\ArticleController; //a23,a2
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +14,11 @@ use App\Http\Controllers\ArticleControlloer; //a15,c3,s4
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/articles', [ArticleControlloer::class, 'index']); //a15,c3,s4
+Route::get('/', [ArticleController::class, 'index'])->name('index')->middleware('auth');
+//a23,a4
+
+require __DIR__.'/auth.php'; //一番下

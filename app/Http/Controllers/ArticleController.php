@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article; //15,k3,step3
 
-class ArticleControlloer extends Controller
+class ArticleController extends Controller
 {
     public function index(Article $article)
     {
+        return view('articles/index')->with(['articles' => $article->get()]);
+        //a16
+        
         return $article->get();
     }
 }
