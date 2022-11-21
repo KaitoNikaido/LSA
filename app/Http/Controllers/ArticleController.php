@@ -12,6 +12,8 @@ class ArticleController extends Controller
         return view('articles/index')->with(['articles' => $article->get()]);
         //a16
         
+        //Like::find(1)
+        
         return $article->get();
     }
 }
