@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController; //a23,a2
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,20 @@ use App\Http\Controllers\ArticleController; //a23,a2
 |
 */
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function () 
+{
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/', [ArticleController::class, 'index'])->name('index')->middleware('auth');
+Route::get('/', [HomeController::class, 'index'])->name('index')->middleware('auth');
 //a23,a4
+
+Route::get('/articles/create', [ArticleController::class, 'create'])->middleware('auth');
+
+Route::get('/articles/{article}', [ArticleController::class, 'show'])->middleware('auth');
+
+Route::get('/articles', [ArticleController::class, 'index'])->middleware('auth');
+
+Route::post('/articles',[ArticleController::class, 'store'])->middleware('auth');
 
 require __DIR__.'/auth.php'; //一番下

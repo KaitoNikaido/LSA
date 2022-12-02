@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('likes', function (Blueprint $table) {
+        Schema::create('listlikes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('article_id')->constrained('articles');
             $table->foreignId('user_id')->constrained('users');
-            //$table->primary(['article_id', 'user_id']);
+            $table->foreignId('list_id')->constrained('lists');
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('likes');
+        Schema::dropIfExists('listlikes');
     }
 };

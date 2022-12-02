@@ -16,6 +16,7 @@ use App\Models\Sound;
 class Article extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
         'title',
         'body',
@@ -23,15 +24,16 @@ class Article extends Model
         'created_at',
         'updated_at',
     ];
-    public function getByLimit(int $limit_count = 10)
+    
+    public function getPaginateByLimit(int $limit_count = 2)
     {
-        // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
     public function index(Article $article)
     {
         return view('articles/index')->with(['articles' => $article->getByLimit()]);
+        //a16,a3
     }
     
     public function users(){
