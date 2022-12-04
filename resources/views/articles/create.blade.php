@@ -22,6 +22,12 @@
             <input type="submit" value="投稿する"/>
         </form>
         
+        <form action="/cloudinary" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="image">
+            <button>画像をアップロード</button>
+        </form>
+        
         <div class="footer">
             <a href="/articles">戻る</a>
         </div>

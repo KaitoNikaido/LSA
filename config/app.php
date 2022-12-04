@@ -181,6 +181,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
+        CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,//画像投稿機能
 
         /*
          * Package Service Providers...

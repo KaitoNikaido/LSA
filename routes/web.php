@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController; //a23,a2
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CloudinaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,9 @@ Route::get('/articles/{article}', [ArticleController::class, 'show'])->middlewar
 Route::get('/articles', [ArticleController::class, 'index'])->middleware('auth');
 
 Route::post('/articles',[ArticleController::class, 'store'])->middleware('auth');
+
+Route::get('/cloudinary', [CloudinaryController::class, 'cloudinary']);  //投稿フォームの表示
+
+Route::post('/cloudinary', [CloudinaryController::class, 'cloudinary_store']);  //画像保存処理
 
 require __DIR__.'/auth.php'; //一番下
