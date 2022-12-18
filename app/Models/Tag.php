@@ -11,7 +11,7 @@ class Tag extends Model
 {
     use HasFactory;
     public function articles(){
-        return $this->belongsToMany(Article::class);
+        return $this->hasMany(Article::class);
     }
     
     public function lists(){
