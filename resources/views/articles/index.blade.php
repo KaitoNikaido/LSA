@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Loop</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
-        <h1>Articles</h1>
+<x-app-layout>
+    <x-slot name="header">
+        　記事一覧
+    </x-slot>
         
         <a href="/articles/create">記事を投稿する</a>
         
@@ -18,6 +12,11 @@
                         <a href="/articles/{{ $article->id }}">{{ $article->title }}</a>
                     </h2>
                     <p class='body'>{{ $article->body}}</p>
+                    @if($article->tags)
+                        @foreach($article->tags as $tag)
+                            <a>{{ $tag->name }}</a>
+                        @endforeach
+                    @endif
                 </div>
             @endforeach
         </div>
@@ -28,5 +27,4 @@
         
         <a href="/">ホーム</a>
         
-    </body>
-</html>
+</x-app-layout>

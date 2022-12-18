@@ -23,6 +23,7 @@ class Article extends Model
         'user_id',
         'created_at',
         'updated_at',
+        'tag_id',
     ];
     
     public function getPaginateByLimit(int $limit_count = 2)
@@ -37,7 +38,7 @@ class Article extends Model
     }
     
     public function users(){
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
     
     public function tags(){
