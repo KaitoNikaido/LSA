@@ -16,6 +16,7 @@ class ArticleRequest extends FormRequest
         return [
             'post.title' => 'required|string|max:50',
             'post.body' => 'required|string|max:200',
+            'post.file' => 'nullable'
         ];
     }
 }

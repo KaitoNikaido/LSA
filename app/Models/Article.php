@@ -9,9 +9,8 @@ use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\Article_List;
 use App\Models\Like;
-use App\Models\Image;
-use App\Models\Movie;
-use App\Models\Sound;
+use App\Models\File;
+
 
 class Article extends Model
 {
@@ -57,15 +56,7 @@ class Article extends Model
         return $this->hasMany(Like::class);
     }
     
-    public function images(){
-        return $this->hasMany(Image::class);
-    }
-    
-    public function movies(){
-        return $this->hasMany(Movie::class);
-    }
-    
-    public function sounds(){
-        return $this->hasMany(Sound::class);
+    public function files(){
+        return $this->hasMany(File::class);
     }
 }

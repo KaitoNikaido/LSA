@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sounds', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("article_id")->constrained("articles");
+            $table->text("file_path");
+            $table->tinyInteger("mime_type");
             $table->timestamps();
-            $table->foreignId('article_id')->constrained('sounds');
-            $table->string('sound_path');
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sounds');
+        Schema::dropIfExists('files');
     }
 };
