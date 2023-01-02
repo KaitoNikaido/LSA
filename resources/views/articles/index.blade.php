@@ -4,6 +4,7 @@
     </x-slot>
         
         <a href="/articles/create">記事を投稿する</a>
+        <button class="px-5 py-2 text-white bg-blue-400 hover:bg-blue-500 duration-200 rounded shadow-lg hover:shadow-xl active:scale-95">button</button>
         
         <div class='articles'>
             @foreach ($articles as $article)

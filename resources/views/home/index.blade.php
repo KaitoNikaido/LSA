@@ -3,15 +3,6 @@
         　ホーム
     </x-slot>
         
-        <div class='sounds'>
-            @foreach($sounds as $sound)
-                <div class='sound'>
-                    <a href="/sound/{{ $sound->article_id }}"><h2 class='title'>{{ $sound->article_id }}</h2></a>
-                    <img src="{{ $sound->sound_path }}"/>
-                </div>
-            @endforeach
-        </div>
-        
         <h1>リスト</h1>
         <a href="/make_lists">リストを作る</a>
         

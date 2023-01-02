@@ -15,6 +15,20 @@
             </div>
         </div>
         
+            @foreach ($article->files as $file)
+                @if ($file->mime_type == '1')
+                    <div
+                        class="flex flex-col justify-start text-center max-w-sm px-10 py-3 bg-white rounded-lg shadow-lg">
+                        <video class="border border-gray-300 shadow-lg" controls src="{{ $file->file_path }}"></video>
+                    </div>
+                @else
+                    <div
+                        class="flex flex-col justify-start text-center max-w-sm px-10 py-3 bg-white rounded-lg shadow-lg">
+                        <img class="border border-gray-300 shadow-lg" src="{{ $file->file_path }}" />
+                    </div>
+                @endif
+            @endforeach
+        
         <div class="footer">
             <a href="/articles">戻る</a>
         </div>
